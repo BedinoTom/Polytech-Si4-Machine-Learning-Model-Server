@@ -3,6 +3,9 @@ from pydantic import BaseModel
 import json
 import os
 
+from . import utils
+from . import inference
+
 app = FastAPI()
 
 class Model(BaseModel):
@@ -42,6 +45,10 @@ async def proccess(req: RequestImage) -> ResponseImage:
     model = get_model_by_id(req.model_id)
     if model == None:
         return ResponseImage(model_id="none", number_class="-1")
+    image_str = model.image_raw
+    np_image = utils.decode_image(image_str.encode("utf-8"))
+    infere_class = inference.inference(model.model_id, np_image)
+    return ResponseImage(model_id=model.model_id, number_class=infere_class)
 
 @app.get("/list")
 async def model_list() -> list[Model]:

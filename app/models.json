@@ -4,6 +4,7 @@
             "id": "classifier_tree",
             "name": "Classifier Tree",
             "tsne": false,
+            "tsne_component": 0,
             "std": false,
             "file": "classifier_tree.model"
         },
@@ -11,6 +12,7 @@
             "id": "cluster_agglo_tsne",
             "name": "Cluster Agglomerative With t-SNE",
             "tsne": true,
+            "tsne_component": 2,
             "std": false,
             "file": "cluster_agglo_tsne.model"
         },
@@ -18,6 +20,7 @@
             "id": "cluster_kmean_tsne",
             "name": "Cluster K-Mean++ with t-SNE",
             "tsne": true,
+            "tsne_component": 2,
             "std": false,
             "file": "cluster_kmean_tsne.model"
         },
@@ -25,6 +28,7 @@
             "id": "cluster_kmediod_tsne",
             "name": "Cluster KMedoid with t-SNE",
             "tsne": true,
+            "tsne_component": 2,
             "std": false,
             "file": "cluster_kmediod_tsne.model"
         },
@@ -32,6 +36,7 @@
             "id": "logistic_regression",
             "name": "Logistic Regression",
             "tsne": false,
+            "tsne_component": 0,
             "std": true,
             "file": "logistic_regression.model"
         },
@@ -39,6 +44,7 @@
             "id": "square_learning",
             "name": "Square Learning with t-SNE",
             "tsne": true,
+            "tsne_component": 2,
             "std": false,
             "file": "square_learning.model"
         },
@@ -46,6 +52,7 @@
             "id": "tree_classifier_tsne",
             "name": "Tree Classifier",
             "tsne": false,
+            "tsne_component": 0,
             "std": false,
             "file": "tree_classifier_tsne.model"
         }
