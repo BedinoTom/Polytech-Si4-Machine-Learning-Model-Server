@@ -1,0 +1,11 @@
+{
+    "models": [
+        {
+            "id": "classifier_tree",
+            "name": "Classifier Tree",
+            "tsne": false,
+            "std": false,
+            "file": "classifier_tree.model"
+        }
+    ]
+}
