@@ -23,16 +23,12 @@ class ResponseImage(BaseModel):
 def get_model_list():
     fp = open(os.path.join(os.getcwd(), "app", "models.json"))
     data = json.load(fp)
-    models = data["models"]
-    result = []
-    for model in models:
-        result.append(Model(name=model["name"], id=model["id"]))
-    return result
+    return data["models"]
 
 def get_model_by_id(id):
     models = get_model_list()
     for model in models:
-        if model.id == id:
+        if model["id"] == id:
             return model
     return None
 
@@ -45,11 +41,14 @@ async def proccess(req: RequestImage) -> ResponseImage:
     model = get_model_by_id(req.model_id)
     if model == None:
         return ResponseImage(model_id="none", number_class="-1")
-    image_str = model.image_raw
+    image_str = req.image_raw
     np_image = utils.decode_image(image_str.encode("utf-8"))
-    infere_class = inference.inference(model.model_id, np_image)
-    return ResponseImage(model_id=model.model_id, number_class=infere_class)
+    infere_class = inference.inference(model, np_image)
+    return ResponseImage(model_id=model["id"], number_class=infere_class)
 
 @app.get("/list")
 async def model_list() -> list[Model]:
-    return get_model_list()
+    result = []
+    for model in get_model_list():
+        result.append(Model(name=model["name"], id=model["id"]))
+    return result
