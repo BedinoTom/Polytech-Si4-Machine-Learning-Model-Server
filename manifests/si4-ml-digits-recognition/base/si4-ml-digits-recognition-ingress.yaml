@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: si4-ml-digits-recognition-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+spec:
+  rules:
+    - host: si4-ml-digits-recognition.apoorva64.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: si4-ml-digits-recognition
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - si4-ml-digits-recognition.apoorva64.com
+      secretName: si4-ml-digits-recognition-tls
