@@ -26,8 +26,10 @@ def proccess_t_sne(X, component):
     return tsne.fit_transform(X)
 
 def transform_image(np_image):
-    if len(np_image.shape) == 3 and np_image.shape[2] > 1:
+    if len(np_image.shape) == 3 and (np_image.shape[2] ==3):
         np_image = color.rgb2gray(np_image)
+    if len(np_image.shape) == 3 and (np_image.shape[2] == 4):
+        np_image = color.rgb2gray(color.rgba2rgb(np_image))
     if np_image.shape[0] == 8 and np_image.shape[1] == 8:
         return np_image
     return resize(np_image, (8, 8),
