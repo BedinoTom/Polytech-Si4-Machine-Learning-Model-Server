@@ -9,27 +9,27 @@
             "file": "classifier_tree.model"
         },
         {
-            "id": "cluster_agglo_tsne",
-            "name": "Cluster Agglomerative With t-SNE",
-            "tsne": true,
-            "tsne_component": 2,
-            "std": false,
+            "id": "cluster_agglo",
+            "name": "Cluster Agglomerative",
+            "tsne": false,
+            "tsne_component": 0,
+            "std": true,
             "file": "cluster_agglo_tsne.model"
         },
         {
-            "id": "cluster_kmean_tsne",
-            "name": "Cluster K-Mean++ with t-SNE",
-            "tsne": true,
-            "tsne_component": 2,
-            "std": false,
+            "id": "cluster_kmean",
+            "name": "Cluster K-Mean++",
+            "tsne": false,
+            "tsne_component": 0,
+            "std": true,
             "file": "cluster_kmean_tsne.model"
         },
         {
-            "id": "cluster_kmediod_tsne",
-            "name": "Cluster KMedoid with t-SNE",
-            "tsne": true,
-            "tsne_component": 2,
-            "std": false,
+            "id": "cluster_kmediod",
+            "name": "Cluster KMedoid",
+            "tsne": false,
+            "tsne_component": 0,
+            "std": true,
             "file": "cluster_kmediod_tsne.model"
         },
         {

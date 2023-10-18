@@ -51,8 +51,8 @@ async def proccess(req: RequestImage) -> ResponseImage:
     if model == None:
         return ResponseImage(model_id="none", number_class="-1")
     image_str = req.image_raw
-    np_image = utils.decode_image(image_str.encode("utf-8"))
-    infere_class = inference.inference(model, np_image)
+    image = utils.decode_image(image_str.encode("utf-8"))
+    infere_class = inference.inference(model, image)
     return ResponseImage(model_id=model["id"], number_class=infere_class)
 
 @app.get("/list")
