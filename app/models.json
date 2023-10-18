@@ -50,9 +50,9 @@
         },
         {
             "id": "tree_classifier_tsne",
-            "name": "Tree Classifier",
-            "tsne": false,
-            "tsne_component": 0,
+            "name": "Tree Classifier with t-SNE",
+            "tsne": true,
+            "tsne_component": 2,
             "std": false,
             "file": "tree_classifier_tsne.model"
         }
